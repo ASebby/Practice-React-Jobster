@@ -54,6 +54,10 @@ const Register = () => {
     setValues({ ...values, isMember: !values.isMember });
   };
 
+  const demoUser = () => {
+    dispatch(loginUser({ email: 'testUser@test.com', password: 'secret' }));
+  };
+
   return (
     <Wrapper className='full-page'>
       <form className='form' onSubmit={onSubmit}>
@@ -81,6 +85,14 @@ const Register = () => {
         />
         <button type='submit' className='btn btn-block' disabled={isLoading}>
           {isLoading ? 'loading...' : 'submit'}
+        </button>
+        <button
+          type='button'
+          className='btn btn-block btn-hipster'
+          disabled={isLoading}
+          onClick={demoUser}
+        >
+          {isLoading ? 'loading...' : 'demo'}
         </button>
         <p>
           {values.isMember ? 'Not a member yet?' : 'Already a member?'}
